@@ -1,0 +1,24 @@
+﻿@model IEnumerable<sample_app.Models.Product>
+
+@*<a href="Home/Create"> Add Product</a>*@
+@*@Html.ActionLink("Add Product","Create","Home")*@
+
+<a asp-action="Create" asp-controller="Home"> Add Product</a>
+
+
+@foreach (var p in Model)
+{
+    <div class="card card-outline-primary m-1 p-1">
+        <div class="bg-faded p-1">
+            <h4>
+                @p.ProductName
+                <span class="badge badge-pill badge-primary" style="float:right">
+                    <small>@p.Price.ToString("c")</small>
+                </span>
+            </h4>
+        </div>
+        <div class="card-text p-1">@p.Description</div>
+
+       
+    </div>
+}
