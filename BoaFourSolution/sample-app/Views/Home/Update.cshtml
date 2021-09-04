@@ -1,0 +1,26 @@
+﻿@model sample_app.Models.Product
+
+<form asp-action="Update" asp-controller="Home">
+    <div class="form-group">
+        <label asp-for="@Model.ProductId"></label>
+        <input asp-for="@Model.ProductId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.ProductName"></label>
+        <input asp-for="@Model.ProductName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Price"></label>
+        <input asp-for="@Model.Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Category"></label>
+        <input asp-for="@Model.Category" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Description"></label>
+        <input asp-for="@Model.Description" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-default"> Submit</button>
+</form>

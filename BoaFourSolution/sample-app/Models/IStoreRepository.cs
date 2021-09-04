@@ -9,5 +9,8 @@ namespace sample_app.Models
     {
         IEnumerable<Product> Products { get; }
         void AddProduct(Product product);
+        bool DeleteProduct(int id);
+        Product GetProductById(int id);
+        void UpdateProduct(Product product);
     }
 }

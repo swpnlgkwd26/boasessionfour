@@ -35,5 +35,31 @@ namespace sample_app.Models
         {
             products.Add(product);
         }
+
+        public bool DeleteProduct(int id)
+        {
+            // Find the Product to be deleted
+            var product = products.Single(x => x.ProductId == id);
+            // Delete the Product
+            products.Remove(product);
+            return true;
+        }
+
+        public Product GetProductById(int id)
+        {
+            return products.Single(x => x.ProductId == id);
+        }
+
+        public void UpdateProduct(Product updatedProduct)
+        {
+            // Get the Product first
+            var product = products.Single(x => x.ProductId == updatedProduct.ProductId);
+            // Update the Values
+            product.ProductName = updatedProduct.ProductName;
+            product.Price = updatedProduct.Price;
+            product.Category = updatedProduct.Category;
+            product.Description = updatedProduct.Description;          
+
+        }
     }
 }

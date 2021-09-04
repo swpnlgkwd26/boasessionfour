@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using sample_app.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,6 +27,9 @@ namespace sample_app
             services.AddScoped<IRandomWrapper, RandomWrapperService>();
 
             services.AddScoped<IStoreRepository, ProductInMemoryRepository>();
+
+            IFileProvider physicalFileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
+            services.AddSingleton<IFileProvider>(physicalFileProvider);
             
         }
 
@@ -56,15 +60,25 @@ namespace sample_app
 
             app.UseEndpoints(endpoints =>
             {
+                // Route /Chess/Page2
+                endpoints.MapControllerRoute("catpage", "{category}/Page{productPage}",
+                    new { controller = "Home", action = "Index", productPage = 1 });
+
+                // Route : http://localhost:5000/Cricket
+
+                endpoints.MapControllerRoute("cateogry", "{category}",
+                    new { controller = "Home", action = "Index", productPage = 1 });
+                //Product/Page3
+                endpoints.MapControllerRoute("pagination", "Product/Page{productPage}",
+                    new { controller = "Home", action = "Index" });
+
+
                 // Routing Logic
                 // Default Controller Name : Home and Action Name = Index
                 // http://localhost/home/index
                 endpoints.MapDefaultControllerRoute();           
 
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("Hello World!");
-                //});
+                
 
             });
             app.Run(async (context) =>

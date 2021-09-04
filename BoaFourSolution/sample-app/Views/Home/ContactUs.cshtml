@@ -1,1 +1,19 @@
-﻿<h2> Contact Us</h2>
+﻿@using Microsoft.Extensions.FileProviders
+@model IDirectoryContents
+<ul>
+    @foreach (var item in Model)
+    {
+        <li> <strong> @item.Name</strong></li>
+    }
+</ul>
+
+<h2> Upload KYC documents</h2>
+<form method="post" enctype="multipart/form-data" asp-controller="Home"  asp-action="FileUpload">
+    <div class="form-group">
+        <input type="file" name="files"  multiple/>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Upload" />
+    </div>
+
+</form>
