@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
@@ -19,21 +20,26 @@ namespace sample_app.Controllers
         private readonly IStoreRepository _repository;
         private readonly ILogger<HomeController> _logger;
         private readonly IFileProvider _fileProvider;
-        public int PageSize = 1;
+        private readonly IMapper _mapper;
+        public int PageSize = 3;
 
         public HomeController(IRandomService randomService, IRandomWrapper randomWrapper,
-            IStoreRepository repository,ILogger<HomeController> logger,IFileProvider fileProvider)
+            IStoreRepository repository, ILogger<HomeController> logger, IFileProvider fileProvider, IMapper mapper)
         {
             _randomService = randomService;
             _randomWrapper = randomWrapper;
             _repository = repository;
             _logger = logger;
             _fileProvider = fileProvider;
+            _mapper = mapper;
         }
         // Default Home Page
 
         // IActionResult is Common Type :  For View, Json , PartialView,
-        public IActionResult Index(string category ,int productPage = 1)
+        //[Route("")]
+        //[Route("Home")]
+        //[Route("Home/Index")]
+        public IActionResult Index(string category, int productPage = 1)
         {
             _logger.LogInformation($"Index Called : {category} Page No : {productPage}");
 
@@ -42,8 +48,8 @@ namespace sample_app.Controllers
             _logger.LogWarning($"Index Called : {category} Page No : {productPage}");
             // Product
             var products = _repository.Products
-                .Where(p=> category == null || p.Category == category)
-                .OrderBy(p=>p.ProductId)
+                .Where(p => category == null || p.Category == category)
+                .OrderBy(p => p.ProductId)
                 .Skip((productPage - 1) * PageSize)
                 .Take(PageSize);
 
@@ -52,18 +58,18 @@ namespace sample_app.Controllers
             {
                 CurrentPage = productPage,
                 ItemsPerPage = PageSize,
-                TotalItems =  category == null ? _repository .Products.Count() : 
-                _repository.Products.Where(x=>x.Category == category).Count()
+                TotalItems = category == null ? _repository.Products.Count() :
+                _repository.Products.Where(x => x.Category == category).Count()
             };
-            
+
 
             ProductListViewModel productListViewModel = new ProductListViewModel
             {
-                PagingInfo= PagingInfo,
-                Products= products,
+                PagingInfo = PagingInfo,
+                Products = products,
                 CurrentCategory = category
             };
-         
+
             _logger.LogInformation($"Data PAss to View : {category} Page No : {productPage}");
             return View(productListViewModel);
         }
@@ -74,12 +80,23 @@ namespace sample_app.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product product)
+        public IActionResult Create(ProductAddViewModel productAddViewModel)
         {
 
-            _logger.LogInformation($"Product Added with ID : {product.ProductId}");
-            _repository.AddProduct(product);
-            return RedirectToAction("Index", "Home");
+
+
+            _logger.LogInformation($"Product Added with ID : {productAddViewModel.ProductId}");
+            // All the Data Anotation Rules are proper
+            if (ModelState.IsValid)
+            {
+                // View : ProductAddviewModel ===Converted ==> >  DAL :  Model
+
+                var product = _mapper.Map<Product>(productAddViewModel);
+                _repository.AddProduct(product);
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+
         }
 
         // Delete Product
@@ -100,21 +117,30 @@ namespace sample_app.Controllers
         {
 
             _logger.LogInformation($"Product AdUpdateded with ID : {id}");
+            // Model => Product ..  Converted into ViewModel ..  Update Expects 
             var product = _repository.GetProductById(id);
-            return View(product);
+            var productEditViewModel = _mapper.Map<ProductEditViewModel>(product);           
+            return View(productEditViewModel);
         }
-
         [HttpPost]
-        public IActionResult Update(Product updatedProduct)
+        public IActionResult Update(ProductEditViewModel productEditViewModel)
         {
-            _repository.UpdateProduct(updatedProduct);
-            return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
+            {
+                // View : productEditViewModel ===Converted ==> >  DAL :  Model
+                var updatedProduct = _mapper.Map<Product>(productEditViewModel);                
+                _repository.UpdateProduct(updatedProduct);
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+
         }
 
         // About Us Page
-        public IActionResult AboutUs(Product product)
+        public IActionResult AboutUs()
         {
-            return View();
+            throw new Exception();
+           // return View();
 
         }
         // Contact Us Page
@@ -139,6 +165,17 @@ namespace sample_app.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
+        // Logic to Validate Category
+        public IActionResult VerifyCategory(string category)
+        {            // Verify it
+            // Any Valid logic  that will check for the existence of data
+            if (category == "Chess" || category == "Soccer" || category == "Cricket")
+            {
+                return Json(true);
+            }
+            return Json(false);
+        }
 
     }
 }

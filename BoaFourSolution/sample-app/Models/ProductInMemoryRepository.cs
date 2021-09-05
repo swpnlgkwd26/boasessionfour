@@ -31,6 +31,7 @@ namespace sample_app.Models
         // Get All Products
         public IEnumerable<Product> Products => products;
 
+        // Model
         public void AddProduct(Product product)
         {
             products.Add(product);
