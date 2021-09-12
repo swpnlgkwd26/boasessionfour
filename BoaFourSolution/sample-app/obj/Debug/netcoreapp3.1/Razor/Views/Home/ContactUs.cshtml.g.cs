@@ -13,6 +13,27 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
+#line 1 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\sample-app\Views\_ViewImports.cshtml"
+using sample_app.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\sample-app\Views\_ViewImports.cshtml"
+using sample_app.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\sample-app\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\sample-app\Views\Home\ContactUs.cshtml"
 using Microsoft.Extensions.FileProviders;
 
@@ -20,7 +41,7 @@ using Microsoft.Extensions.FileProviders;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"12f9129e280f7f0c138679859231b6fd1d173333", @"/Views/Home/ContactUs.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"253c360a355ac8eadd478088a20362d4ce7ce616", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c012195fa98849c861bf78fb4fb5580b7c875c7b", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_ContactUs : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IDirectoryContents>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -78,7 +99,7 @@ using Microsoft.Extensions.FileProviders;
 #line hidden
 #nullable disable
             WriteLiteral("</ul>\r\n\r\n<h2> Upload KYC documents</h2>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12f9129e280f7f0c138679859231b6fd1d1733335390", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12f9129e280f7f0c138679859231b6fd1d1733336138", async() => {
                 WriteLiteral("\r\n    <div class=\"form-group\">\r\n        <input type=\"file\" name=\"files\"  multiple/>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <input type=\"submit\" value=\"Upload\" />\r\n    </div>\r\n\r\n");
             }
             );

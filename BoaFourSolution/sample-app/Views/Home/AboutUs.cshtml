@@ -1,1 +1,33 @@
 ﻿<h1> About Us</h1>
+<h2> Connect to Web API</h2>
+<button id="btnClick" class="btn btn-primary"> GetProducts</button>
+ Display all product names
+<ul id="ulProducts">
+
+</ul>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var ulProducts = $("#ulProducts"); // Get the ref of UL :  Need to insert productname here
+
+        $("#btnClick").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3420/api/Products",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    ulProducts.empty();
+                    $.each(data, function (index, val) {
+                        ulProducts.append('<li>' + val.productName + '</li>');
+                    })
+                }
+            })
+
+
+        })
+
+
+
+    })
+
+</script>

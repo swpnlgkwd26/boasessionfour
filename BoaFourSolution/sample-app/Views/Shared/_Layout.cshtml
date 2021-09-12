@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<ApplicationUser> SignInManager
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -10,12 +12,41 @@
 <body>
     <div class="bg-dark text-white p-2">
         <span class="navbar-brand ml-2">Admin</span>
+
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <span style="float:right">
+                <a class="btn btn-block btn-outline-secondary" asp-action="Register" asp-controller="Account"
+                   asp-route-category="">
+                    Register
+                </a>
+
+            </span>
+            <span style="float:right">
+                <a class="btn btn-block btn-outline-secondary" asp-action="Login" asp-controller="Account"
+                   asp-route-category="">
+                    Login
+                </a>
+
+            </span>
+        }
+        else
+        {
+            <span style="float:right">
+                <a class="btn btn-block btn-outline-secondary" asp-action="Logout" asp-controller="Account"
+                   asp-route-category="">
+                    Logout
+                </a>
+
+            </span>
+        }
+
     </div>
     <div class="row m-1 p-1">
         <div id="categories" class="col-3">
-           @* Put something useful here later : Write a logic that will bring all the categories and show it as link*@
-           
-            <vc:navigation-menu/>
+            @* Put something useful here later : Write a logic that will bring all the categories and show it as link*@
+
+            <vc:navigation-menu />
         </div>
         <div class="col-9">
             @*Child Pages are loaded*@

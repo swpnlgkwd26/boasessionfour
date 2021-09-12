@@ -1,11 +1,6 @@
 ﻿@model sample_app.ViewModels.ProductAddViewModel
 
-<form asp-action="Create" asp-controller="Home">
-    <div class="form-group">
-        <label asp-for="@Model.ProductId"></label>
-        <input asp-for="@Model.ProductId" class="form-control" />
-        <span asp-validation-for="@Model.ProductId" class="text-danger"></span>
-    </div>
+<form asp-action="Create" asp-controller="Home">    
     <div class="form-group">
         <label asp-for="@Model.ProductName"></label>
         <input asp-for="@Model.ProductName" class="form-control" />

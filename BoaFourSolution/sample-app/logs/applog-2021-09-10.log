@@ -1,0 +1,410 @@
+2021-09-10 16:29:15.1441 - Now listening on: http://localhost:5000 -            
+
+2021-09-10 16:29:15.1895 - Application started. Press Ctrl+C to shut down. -            
+
+2021-09-10 16:29:15.1895 - Hosting environment: Development -            
+
+2021-09-10 16:29:15.1895 - Content root path: D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew - Copy\WebApp\BoaFourSolution\sample-app -            
+
+2021-09-10 16:29:22.2458 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:29:22.2561 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:29:22.2561 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:29:23.8553 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:29:24.3950 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:29:24.3950 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:29:24.3950 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:29:24.4417 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:30:20.4210 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:30:20.4210 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:30:20.4210 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:30:20.4210 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:30:43.7112 - Product Added with ID : 110 -            
+
+2021-09-10 16:30:44.1569 - Failed executing DbCommand (192ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Products] ([ProductId], [Category], [Description], [Price], [ProductName])
+VALUES (@p0, @p1, @p2, @p3, @p4); -            
+
+2021-09-10 16:30:44.2901 - An exception occurred in the database while saving changes for context type 'sample_app.Models.ProductDBContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Products' when IDENTITY_INSERT is set to OFF.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:d3d526aa-5a01-4739-a775-936f16af6d59
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess) -               at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+
+2021-09-10 16:33:10.4050 - Now listening on: http://localhost:5000 -            
+
+2021-09-10 16:33:10.4707 - Application started. Press Ctrl+C to shut down. -            
+
+2021-09-10 16:33:10.4707 - Hosting environment: Development -            
+
+2021-09-10 16:33:10.4707 - Content root path: D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew - Copy\WebApp\BoaFourSolution\sample-app -            
+
+2021-09-10 16:33:12.9064 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:33:12.9064 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:33:12.9219 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:33:13.9682 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:33:14.5753 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:14.5968 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:14.5968 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:14.6424 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:16.3096 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:16.3160 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:16.3160 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:16.3160 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:35.0008 - Product Added with ID : 0 -            
+
+2021-09-10 16:33:35.5172 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:33:35.5172 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:33:35.5172 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:33:35.5412 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:33:35.7943 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:35.8023 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:35.8023 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:35.8131 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:39.7019 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:39.7019 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:39.7019 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:39.7171 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:56.3816 - Product Added with ID : 0 -            
+
+2021-09-10 16:33:56.4087 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:33:56.4087 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:33:56.4087 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:33:56.4233 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:33:56.6030 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:56.6071 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:56.6071 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:56.6071 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:58.3372 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:58.3372 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:58.3461 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:33:58.3461 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:13.0043 - Product Added with ID : 0 -            
+
+2021-09-10 16:34:13.0304 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:34:13.0304 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:34:13.0304 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:34:13.0462 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:34:13.2161 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:13.2225 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:13.2225 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:13.2225 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:16.5564 - Product AdUpdateded with ID : 1 -            
+
+2021-09-10 16:34:16.8701 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:16.8746 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:16.8746 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:16.8746 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:54.1809 - Now listening on: http://localhost:5000 -            
+
+2021-09-10 16:34:54.2202 - Application started. Press Ctrl+C to shut down. -            
+
+2021-09-10 16:34:54.2202 - Hosting environment: Development -            
+
+2021-09-10 16:34:54.2202 - Content root path: D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew - Copy\WebApp\BoaFourSolution\sample-app -            
+
+2021-09-10 16:34:56.6089 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:34:56.6089 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:34:56.6235 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:34:57.7389 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:34:58.3400 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:58.3498 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:58.3498 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:34:58.3949 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:06.6156 - Product AdUpdateded with ID : 1 -            
+
+2021-09-10 16:35:07.0657 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:07.0657 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:07.0657 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:07.0797 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:13.7820 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:35:13.7820 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:35:13.7820 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:35:13.7960 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:35:14.0233 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:14.0233 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:14.0344 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:14.0344 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:18.2684 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:35:18.2684 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:35:18.2684 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:35:18.2816 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:35:18.4390 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:18.4390 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:18.4390 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:18.4535 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:21.4061 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:21.4061 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:21.4061 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:21.4219 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:33.7411 - Product Added with ID : 0 -            
+
+2021-09-10 16:35:33.8385 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:35:33.8430 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:35:33.8430 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:35:33.8430 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:35:34.0226 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:34.0226 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:34.0318 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:35:34.0318 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:55:56.4240 - Now listening on: http://localhost:5000 -            
+
+2021-09-10 16:55:56.4876 - Application started. Press Ctrl+C to shut down. -            
+
+2021-09-10 16:55:56.4876 - Hosting environment: Development -            
+
+2021-09-10 16:55:56.4876 - Content root path: D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew - Copy\WebApp\BoaFourSolution\sample-app -            
+
+2021-09-10 16:55:59.1858 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:55:59.1858 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:55:59.2025 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:56:00.5250 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:56:01.1388 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:56:01.1388 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:56:01.1388 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:56:01.2098 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:56:40.0087 - An exception occurred while iterating over the results of a query for context type 'sample_app.Models.ProductDBContext'.
+System.InvalidOperationException: FromSqlRaw or FromSqlInterpolated was called with non-composable SQL and with a query composing over it. Consider calling `AsEnumerable` after the FromSqlRaw or FromSqlInterpolated method to perform the composition on the client side.
+   at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.VisitFromSql(FromSqlExpression fromSqlExpression)
+   at Microsoft.EntityFrameworkCore.Query.SqlExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at System.Linq.Expressions.Expression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.<VisitSelect>b__18_1(TableExpressionBase e)
+   at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.GenerateList[T](IReadOnlyList`1 items, Action`1 generationAction, Action`1 joinAction)
+   at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.VisitSelect(SelectExpression selectExpression)
+   at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.GetCommand(SelectExpression selectExpression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalCommandCache.GetRelationalCommand(IReadOnlyDictionary`2 parameters)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext() -               at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.VisitFromSql(FromSqlExpression fromSqlExpression)
+   at Microsoft.EntityFrameworkCore.Query.SqlExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at System.Linq.Expressions.Expression.Accept(ExpressionVisitor visitor)
+   at System.Linq.Expressions.ExpressionVisitor.Visit(Expression node)
+   at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.<VisitSelect>b__18_1(TableExpressionBase e)
+   at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.GenerateList[T](IReadOnlyList`1 items, Action`1 generationAction, Action`1 joinAction)
+   at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.VisitSelect(SelectExpression selectExpression)
+   at Microsoft.EntityFrameworkCore.Query.QuerySqlGenerator.GetCommand(SelectExpression selectExpression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.RelationalCommandCache.GetRelationalCommand(IReadOnlyDictionary`2 parameters)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+
+2021-09-10 16:57:26.7943 - Now listening on: http://localhost:5000 -            
+
+2021-09-10 16:57:26.8328 - Application started. Press Ctrl+C to shut down. -            
+
+2021-09-10 16:57:26.8328 - Hosting environment: Development -            
+
+2021-09-10 16:57:26.8328 - Content root path: D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew - Copy\WebApp\BoaFourSolution\sample-app -            
+
+2021-09-10 16:57:29.8988 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:57:29.9096 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:57:29.9096 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:57:31.0916 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:57:31.6847 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:57:31.6919 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:57:31.6919 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:57:31.7452 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:58:17.8379 - Now listening on: http://localhost:5000 -            
+
+2021-09-10 16:58:17.8812 - Application started. Press Ctrl+C to shut down. -            
+
+2021-09-10 16:58:17.8812 - Hosting environment: Development -            
+
+2021-09-10 16:58:17.8812 - Content root path: D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew - Copy\WebApp\BoaFourSolution\sample-app -            
+
+2021-09-10 16:58:20.9922 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:58:21.0026 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:58:21.0026 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:58:22.1162 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:58:22.7862 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:58:22.7862 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:58:22.7862 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:58:22.8507 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:58:44.6022 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:58:44.6022 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:58:44.6097 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:58:44.6097 - Data PAss to View : favicon.ico Page No : 1 -            
+
+2021-09-10 16:58:59.2915 - Now listening on: http://localhost:5000 -            
+
+2021-09-10 16:58:59.3564 - Application started. Press Ctrl+C to shut down. -            
+
+2021-09-10 16:58:59.3613 - Hosting environment: Development -            
+
+2021-09-10 16:58:59.3613 - Content root path: D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew - Copy\WebApp\BoaFourSolution\sample-app -            
+
+2021-09-10 16:59:01.5661 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:59:01.5768 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:59:01.5768 - Index Called :  Page No : 1 -            
+
+2021-09-10 16:59:02.7347 - Data PAss to View :  Page No : 1 -            
+
+2021-09-10 16:59:03.2691 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:59:03.2803 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:59:03.2803 - Index Called : favicon.ico Page No : 1 -            
+
+2021-09-10 16:59:03.3357 - Data PAss to View : favicon.ico Page No : 1 -            
+

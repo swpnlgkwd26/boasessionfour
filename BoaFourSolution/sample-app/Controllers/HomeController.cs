@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace sample_app.Controllers
 {
+    [Authorize(Roles = "Administrator,Users")] // block the access to any user unless and until he logs in
     public class HomeController : Controller
     {
         private readonly IRandomService _randomService;
@@ -39,6 +41,8 @@ namespace sample_app.Controllers
         //[Route("")]
         //[Route("Home")]
         //[Route("Home/Index")]
+
+        [AllowAnonymous]
         public IActionResult Index(string category, int productPage = 1)
         {
             _logger.LogInformation($"Index Called : {category} Page No : {productPage}");
@@ -72,6 +76,7 @@ namespace sample_app.Controllers
 
             _logger.LogInformation($"Data PAss to View : {category} Page No : {productPage}");
             return View(productListViewModel);
+            
         }
 
         public IActionResult Create()
@@ -139,8 +144,12 @@ namespace sample_app.Controllers
         // About Us Page
         public IActionResult AboutUs()
         {
-            throw new Exception();
-           // return View();
+           // _repository.PerformTransaction();
+
+            //var product = _repository.GetProductById(1);
+            //return View(product);
+            //throw new Exception();
+            return View();
 
         }
         // Contact Us Page

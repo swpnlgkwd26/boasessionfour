@@ -12,5 +12,7 @@ namespace sample_app.Models
         bool DeleteProduct(int id);
         Product GetProductById(int id);
         void UpdateProduct(Product product);
+
+        void PerformTransaction();
     }
 }

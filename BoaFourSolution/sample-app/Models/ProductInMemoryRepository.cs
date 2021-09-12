@@ -40,6 +40,7 @@ namespace sample_app.Models
         public bool DeleteProduct(int id)
         {
             // Find the Product to be deleted
+            
             var product = products.Single(x => x.ProductId == id);
             // Delete the Product
             products.Remove(product);
@@ -49,6 +50,11 @@ namespace sample_app.Models
         public Product GetProductById(int id)
         {
             return products.Single(x => x.ProductId == id);
+        }
+
+        public void PerformTransaction()
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateProduct(Product updatedProduct)

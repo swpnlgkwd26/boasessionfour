@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
@@ -16,6 +19,13 @@ namespace sample_app
     // Thin and Slim that its more performant than any other ASP.Net Tech use to Exist
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -26,13 +36,25 @@ namespace sample_app
             services.AddScoped<IRandomService, RandomService>();
             services.AddScoped<IRandomWrapper, RandomWrapperService>();
 
-            services.AddScoped<IStoreRepository, ProductInMemoryRepository>();
+            //services.AddScoped<IStoreRepository, ProductInMemoryRepository>();
+            services.AddScoped<IStoreRepository, ProductSQLRepository>();
 
             IFileProvider physicalFileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
             services.AddSingleton<IFileProvider>(physicalFileProvider);
 
             // Configure Automapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddDbContext<BoaSessionFourBatchContext>(options =>
+            {
+                options.UseSqlServer(Configuration["ConnectionStrings:ProductConnection"]);
+            });
+            // Enable Identity
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<BoaSessionFourBatchContext>();
+
+
+
             
         }
 
@@ -67,6 +89,8 @@ namespace sample_app
 
             //-	It looks for the set of defined endpoints and select best match based on the request.
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -84,7 +108,7 @@ namespace sample_app
                     await context.Response.WriteAsync("Hello : " + price);
                 });
 
-                Route / Chess / Page2
+               // Route / Chess / Page2
                 endpoints.MapControllerRoute("catpage", "{category}/Page{productPage:int:min(1)}",
                     new { controller = "Home", action = "Index", productPage = 1 });
 
