@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using sample_webapi.Filters;
 using sample_webapi.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ namespace sample_webapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class ProductsController : ControllerBase
     {
         private readonly BoaSessionFourSatContext _context;
@@ -47,16 +50,9 @@ namespace sample_webapi.Controllers
          [Consumes("application/json")]
          [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [CustomActionFilter]
         public async Task<IActionResult> AddProduct([FromBody] Product product)
-        {
-            if (product == null)
-            {
-                return BadRequest("Model is Null");
-            }
-            if (!ModelState.IsValid)
-            {
-                return BadRequest("Model is not Valid");
-            }
+        {           
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
             return Ok(product);
@@ -74,16 +70,10 @@ namespace sample_webapi.Controllers
         [Consumes("application/json", "application/xml")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [CustomActionFilter]
         public async Task<IActionResult> UpdateProduct([FromBody] Product product)
         {
-            if (product == null)
-            {
-                return BadRequest("Model is Null");
-            }
-            if (!ModelState.IsValid)
-            {
-                return BadRequest("Model is not Valid");
-            }
+            
             _context.Products.Update(product);
             await _context.SaveChangesAsync();
             return Ok(product);

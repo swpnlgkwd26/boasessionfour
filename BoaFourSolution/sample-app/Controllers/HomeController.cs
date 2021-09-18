@@ -4,17 +4,21 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
+using sample_app.Infrastructure;
 using sample_app.Models;
 using sample_app.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 namespace sample_app.Controllers
 {
-    [Authorize(Roles = "Administrator,Users")] // block the access to any user unless and until he logs in
+    //[Authorize(Roles = "Administrator,Users")] // block the access to any user unless and until he logs in
+
+    [AddHeader("Swapnil","Gaikwad")]
     public class HomeController : Controller
     {
         private readonly IRandomService _randomService;
@@ -23,10 +27,14 @@ namespace sample_app.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IFileProvider _fileProvider;
         private readonly IMapper _mapper;
+        private readonly UrlEncoder _urlEncoder;
         public int PageSize = 3;
 
-        public HomeController(IRandomService randomService, IRandomWrapper randomWrapper,
-            IStoreRepository repository, ILogger<HomeController> logger, IFileProvider fileProvider, IMapper mapper)
+
+    
+
+            public HomeController(IRandomService randomService, IRandomWrapper randomWrapper,
+            IStoreRepository repository, ILogger<HomeController> logger, IFileProvider fileProvider, IMapper mapper,UrlEncoder urlEncoder)
         {
             _randomService = randomService;
             _randomWrapper = randomWrapper;
@@ -34,6 +42,7 @@ namespace sample_app.Controllers
             _logger = logger;
             _fileProvider = fileProvider;
             _mapper = mapper;
+           _urlEncoder = urlEncoder;
         }
         // Default Home Page
 
@@ -45,6 +54,10 @@ namespace sample_app.Controllers
         [AllowAnonymous]
         public IActionResult Index(string category, int productPage = 1)
         {
+            var example = "\"Quoted Value with spaces and &\"";
+            var encodedValue = _urlEncoder.Encode(example);
+            ViewBag.EncodedValue = encodedValue;
+
             _logger.LogInformation($"Index Called : {category} Page No : {productPage}");
 
             _logger.LogError($"Index Called : {category} Page No : {productPage}");
@@ -85,8 +98,16 @@ namespace sample_app.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(CustomExceptionFilter))]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(ProductAddViewModel productAddViewModel)
         {
+
+            // if the Product PRice =0  then navigate to Custom Error Page
+            if (productAddViewModel.Price ==0 )
+            {
+                throw new Exception(" Please dont add product with price 0");
+            }
 
 
 

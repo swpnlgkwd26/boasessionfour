@@ -1,6 +1,6 @@
 ﻿@model sample_app.ViewModels.ProductAddViewModel
 
-<form asp-action="Create" asp-controller="Home">    
+<form asp-action="Create" asp-controller="Home" asp-antiforgery="true">    
     <div class="form-group">
         <label asp-for="@Model.ProductName"></label>
         <input asp-for="@Model.ProductName" class="form-control" />

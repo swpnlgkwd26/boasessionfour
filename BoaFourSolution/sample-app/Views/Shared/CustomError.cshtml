@@ -1,0 +1,7 @@
+﻿
+@{ 
+    // Accepts the exception thrown by the Action method. 
+    var exception = ViewData["Exception"] as Exception;
+}
+<h2>  Error Page</h2>
+<p> @exception.Message</p>

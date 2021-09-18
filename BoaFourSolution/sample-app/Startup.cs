@@ -7,9 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using sample_app.Infrastructure;
 using sample_app.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,7 +55,7 @@ namespace sample_app
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<BoaSessionFourBatchContext>();
 
-
+            services.AddScoped<CustomExceptionFilter>();
 
             
         }
@@ -61,6 +63,12 @@ namespace sample_app
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+           // app.UseRequestCulture(); // Setting the culture
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello : " + CultureInfo.CurrentCulture.DisplayName); // Displaying
+            //});
             app.UseStatusCodePages();
             if (env.IsDevelopment())
             {
