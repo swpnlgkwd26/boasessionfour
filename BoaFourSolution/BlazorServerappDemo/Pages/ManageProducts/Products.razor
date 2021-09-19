@@ -1,0 +1,52 @@
+﻿@page "/products"
+
+@inject IProductRepository _repository
+
+<h3>Display All Products From DB</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td> Name</td>
+            <td> Cost</td>
+            <td> Description</td>
+            <td> Category</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in products)
+        {
+            <tr>
+                <td> @item.ProductName</td>
+                <td> @item.Price</td>
+                <td> @item.Description</td>
+                <td> @item.Category</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="()=> ShowDetails(item.ProductId)">
+                        Show Details
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<ProductDetails ProductId="@ProductID"/>
+
+@code {
+
+    public List<Product> products { get; set; }
+    // When the Component is Loaded
+    protected async override Task OnInitializedAsync()
+    {
+        products = await _repository.GetProducts();
+    }
+
+    public int ProductID { get; set; }
+
+    public void ShowDetails(int productId)
+    {
+        ProductID = productId;
+
+    }
+
+}

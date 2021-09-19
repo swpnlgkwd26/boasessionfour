@@ -1,0 +1,28 @@
+﻿<div class="card-body">
+    <h4>ChildComponent</h4>
+    <h4> Received From Parent : @EmpNameFromParent</h4>
+    <hr />
+    <input type="text" @bind="EmpAddress" />
+    <button @onclick="SendDataToParent"> Send Data to Parent</button>
+
+    <hr/>
+    <GrandChildComponent />
+
+</div>
+
+
+@code {
+    [Parameter]
+    public string EmpNameFromParent { get; set; }
+
+    public string EmpAddress { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SendToParent { get; set; }
+
+    public void SendDataToParent()
+    {
+        SendToParent.InvokeAsync(EmpAddress);
+    }
+
+}

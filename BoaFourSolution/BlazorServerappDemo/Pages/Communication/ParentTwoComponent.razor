@@ -1,0 +1,13 @@
+﻿@page "/parent2/{EmpNameFromComponent}"
+
+<h3>ParentTwoComponent :@EmpNameFromComponent </h3>
+<AlertComponent>
+    <strong> Data is Updated Successfully</strong>
+</AlertComponent>
+
+@code {
+
+    [Parameter]
+    public string EmpNameFromComponent { get; set; }
+
+}

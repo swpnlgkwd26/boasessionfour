@@ -1,0 +1,39 @@
+﻿@page "/parent"
+
+@inject NavigationManager NavigationManager
+
+<h3>ParentComponent</h3>
+
+<input @bind="EmpName" @bind:event="oninput"/>
+<button class="btn btn-primary" @onclick="SendEmpNameToAnotherComponent"> SendToAnotherComponent</button>
+<h3> Received From Child : @ChildEmpAddress </h3>
+<hr/>
+<hr/>
+<br/>
+<br/>
+<CascadingValue Name="EmpName" Value="EmpName">
+       <ChildComponent EmpNameFromParent="@EmpName" SendToParent="GetDataFromChild" />
+</CascadingValue>
+
+<AlertComponent>
+    <strong> Data is Deleted Successfully</strong>
+</AlertComponent>
+
+@code {
+
+    public string  EmpName { get; set; }
+
+    public string  ChildEmpAddress { get; set; }
+
+    public void GetDataFromChild(string value)
+    {
+        ChildEmpAddress = value;
+    }
+
+    public void SendEmpNameToAnotherComponent()
+    {
+        NavigationManager.NavigateTo($"/parent2/{EmpName}");
+
+    }
+
+}

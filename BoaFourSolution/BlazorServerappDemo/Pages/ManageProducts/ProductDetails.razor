@@ -1,0 +1,24 @@
+﻿<h3>Show All Details Of Specific Product : @ProductId</h3>
+@inject IProductRepository _repository
+
+@if (Product != null)
+{
+<p> @Product.ProductId, @Product.ProductName</p>
+}
+
+
+@code {
+    [Parameter]
+    public int ProductId { get; set; }
+
+
+    public Product Product { get; set; }
+
+    // EventCallback
+    // When the Component is Loaded
+    protected async override Task OnInitializedAsync()
+    {
+        Product = await _repository.GetProductById(ProductId);
+    }
+
+}

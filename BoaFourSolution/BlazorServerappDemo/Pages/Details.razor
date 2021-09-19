@@ -1,0 +1,167 @@
+﻿@page "/details"
+
+<h3>Details</h3>
+Show Or Hide :
+<input type="checkbox" @bind="IsChecked" />
+@if (IsChecked)
+{
+    <table class="table table-bordered">
+        <tr>
+            <td> Name</td>
+            <td> <input type="text" @bind="productViewModel.ProductName" @bind:event="oninput" /></td>
+        </tr>
+        <tr>
+            <td> Price</td>
+            <td> <input type="text" @bind="productViewModel.Price" @bind:event="oninput" /></td>
+        </tr>
+        <tr>
+            <td> Description</td>
+            <td> <input type="text" @bind="productViewModel.Description" @bind:event="oninput" /></td>
+        </tr>
+        <tr>
+            <td> Category</td>
+            <td> <input type="text" @bind="productViewModel.Category" @bind:event="oninput" /></td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> <button class="btn btn-primary" disabled="@(productViewModel.Price == 0)"> Go Back</button></td>
+        </tr>
+    </table>
+}
+
+
+
+<p>
+    @productViewModel.ProductName , @productViewModel.Price ,
+    @productViewModel.Description, @productViewModel.Category
+</p>
+
+<h2> Category : @SelectedCategory</h2>
+<select @bind="SelectedCategory">
+    <option> Select One</option>
+    @foreach (var item in categories)
+    {
+        <option> @item</option>
+    }
+</select>
+
+<button class="btn btn-warning" @onclick="AddProduct"> Add Product</button>
+
+Search Product  :
+<input type="text" @bind="ProductName" />
+<button class="btn btn-warning" @onclick="()=> SearchProduct(ProductName)"> Search Product</button>
+
+<h3> Iterating Over Collections</h3>
+
+<ul>
+    @foreach (var item in listOfProductViewModels)
+    {
+        <li @key="item.ProductId"> @item.ProductId , @item.ProductName</li>
+    }
+
+</ul>
+
+
+<h3> Attribute Splatting</h3>
+<input id="useIndividualParams"
+       maxlength="@maxlength"
+       placeholder="@placeholder"
+       required="@required"
+       size="@size" />
+
+<input @attributes="InputAttributes"/>
+<input @attributes="InputAttributes" />
+
+<h3> Templated Component</h3>
+<BlazorServerappDemo.Pages.TemplatedComponent.ListViewTemplate Items="listOfProductViewModels">
+    <ItemTemplate Context="product">
+        <li>@product.ProductName</li>
+    </ItemTemplate>
+
+</BlazorServerappDemo.Pages.TemplatedComponent.ListViewTemplate>
+
+@code {
+
+    private string maxlength = "10";
+    private string placeholder = "Input placeholder text";
+    private string required = "required";
+    private string size = "50";
+
+    // Splatting
+    private Dictionary<string, object> InputAttributes  =
+         new Dictionary<string, object>()
+         {
+             { "maxlength", "10" },
+             { "placeholder", "Input placeholder text" },
+             { "required", "required" },
+             { "size", "50" }
+         };
+
+
+
+
+
+
+
+    List<ProductViewModel> listOfProductViewModels = new List<ProductViewModel>
+{
+        new ProductViewModel
+    {
+        ProductId = 1,
+        ProductName = "Chess Board1",
+        Category = "Chess",
+        Description = "Chess",
+        Price = 100
+    },
+             new ProductViewModel
+    {
+        ProductId = 2,
+        ProductName = "Chess Board2",
+        Category = "Chess",
+        Description = "Chess",
+        Price = 100
+    },
+                  new ProductViewModel
+    {
+        ProductId = 3,
+        ProductName = "Chess Board3",
+        Category = "Chess",
+        Description = "Chess",
+        Price = 100
+    }
+
+
+    };
+
+    public string SelectedCategory { get; set; }
+
+    string[] categories = { "Cricket", "Chess", "Soccer" };
+
+    public bool IsChecked { get; set; }
+
+    ProductViewModel productViewModel = new ProductViewModel
+    {
+        ProductId = 1,
+        ProductName = "Chess Board",
+        Category = "Chess",
+        Description = "Chess",
+        Price = 100
+    };
+
+    public void AddProduct()
+    {
+        listOfProductViewModels.Add(new ProductViewModel
+        {
+            ProductId = 10,
+            ProductName = "Cricket",
+            Category = "Chess",
+            Description = "Chess",
+            Price = 100
+        });
+    }
+    public string ProductName { get; set; }
+    public void SearchProduct(string productName)
+    {
+        Console.WriteLine("Search Product : " + productName);
+    }
+}
