@@ -1,0 +1,15 @@
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\netcoreapp3.1\TestWindowsForms.exe
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\netcoreapp3.1\TestWindowsForms.dll.config
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\netcoreapp3.1\TestWindowsForms.deps.json
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\netcoreapp3.1\TestWindowsForms.runtimeconfig.json
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\netcoreapp3.1\TestWindowsForms.runtimeconfig.dev.json
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\netcoreapp3.1\TestWindowsForms.dll
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\netcoreapp3.1\TestWindowsForms.pdb
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\netcoreapp3.1\TestWindowsForms.csprojAssemblyReference.cache
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\netcoreapp3.1\TestWindowsForms.Form1.resources
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\netcoreapp3.1\TestWindowsForms.Properties.Resources.resources
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\netcoreapp3.1\TestWindowsForms.csproj.GenerateResource.cache
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\netcoreapp3.1\TestWindowsForms.csproj.CoreCompileInputs.cache
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\netcoreapp3.1\TestWindowsForms.dll
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\netcoreapp3.1\TestWindowsForms.pdb
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\netcoreapp3.1\TestWindowsForms.genruntimeconfig.cache

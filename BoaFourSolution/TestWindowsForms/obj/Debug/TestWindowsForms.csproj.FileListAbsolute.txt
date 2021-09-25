@@ -1,0 +1,10 @@
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\TestWindowsForms.exe.config
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\TestWindowsForms.exe
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\bin\Debug\TestWindowsForms.pdb
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\TestWindowsForms.csprojAssemblyReference.cache
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\TestWindowsForms.Form1.resources
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\TestWindowsForms.Properties.Resources.resources
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\TestWindowsForms.csproj.GenerateResource.cache
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\TestWindowsForms.csproj.CoreCompileInputs.cache
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\TestWindowsForms.exe
+D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\TestWindowsForms\obj\Debug\TestWindowsForms.pdb
