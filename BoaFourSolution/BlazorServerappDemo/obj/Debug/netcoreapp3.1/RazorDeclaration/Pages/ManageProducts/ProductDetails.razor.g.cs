@@ -90,25 +90,16 @@ using BlazorServerappDemo.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\BlazorServerappDemo\Pages\ManageProducts\ProductDetails.razor"
-       
+#line 5 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\BlazorServerappDemo\Pages\ManageProducts\ProductDetails.razor"
+        
+
     [Parameter]
-    public int ProductId { get; set; }
-
-
-    public Product Product { get; set; }
-
-    // When the Component is Loaded
-    protected async override Task OnInitializedAsync()
-    {
-        Product = await _repository.GetProductById(ProductId);
-    }
+    public Product Product { get; set; }   
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProductRepository _repository { get; set; }
     }
 }
 #pragma warning restore 1591

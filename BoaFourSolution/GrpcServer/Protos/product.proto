@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+service Product{
+	rpc GetProducts(EmptyProductModel) returns (stream ProductModel);
+	rpc GetProductById(ProductLookModel)  returns (ProductModel);
+}
+
+message EmptyProductModel{
+
+}
+message ProductModel{
+  int32 productId=1;
+  string productName =2;
+  int32 price =3;
+  string description=4;
+  string category =5;
+}
+
+message ProductLookModel{
+	int32 productId=1;
+}
+
+

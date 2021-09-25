@@ -1,0 +1,21 @@
+﻿@page "/parentthree"
+<h3>ParentThreeComponent</h3>
+
+<input @bind="Title" @bind:event="oninput" />
+
+<ChildThreeComponent @bind-MainTitle="Title"
+                     @bind-MainTitle:event="MainTitleChanged"/>
+
+<ModalChild @ref="modalChild"/>
+<button @onclick="TestChildfunction">Call Child function</button>
+
+@code {
+    private ModalChild modalChild;
+    public void TestChildfunction()
+    {
+        modalChild.ModalChildFunction();
+    }
+
+    public string Title { get; set; } = "Two Way Data Binding";
+
+}

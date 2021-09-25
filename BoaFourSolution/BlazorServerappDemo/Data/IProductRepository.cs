@@ -9,5 +9,7 @@ namespace BlazorServerappDemo.Data
     {
         Task<List<Product>> GetProducts();
         Task<Product> GetProductById(int productID);
+
+        Task AddProduct(Product product);
     }
 }

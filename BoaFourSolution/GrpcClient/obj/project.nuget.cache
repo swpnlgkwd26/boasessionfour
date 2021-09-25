@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "xo9wyJ2kWFcZi+IAUta5kyZrhMApUgXg0155gExg/U/rjmJVNCsGga5Tczkg8RcDiajg+lhB50Su59304sC4cA==",
+  "success": true,
+  "projectFilePath": "D:\\FreeLancerAssignments\\Edureka\\BankOfAmericaSessions\\BOA4\\BoaSessionFourNew\\WebApp\\BoaFourSolution\\GrpcClient\\GrpcClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\google.protobuf\\3.18.0\\google.protobuf.3.18.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\grpc.core.api\\2.40.0\\grpc.core.api.2.40.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\grpc.net.client\\2.40.0-pre1\\grpc.net.client.2.40.0-pre1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\grpc.net.common\\2.40.0-pre1\\grpc.net.common.2.40.0-pre1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\grpc.tools\\2.41.0-pre2\\grpc.tools.2.41.0-pre2.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.0.3\\microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.5.1\\system.diagnostics.diagnosticsource.4.5.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}

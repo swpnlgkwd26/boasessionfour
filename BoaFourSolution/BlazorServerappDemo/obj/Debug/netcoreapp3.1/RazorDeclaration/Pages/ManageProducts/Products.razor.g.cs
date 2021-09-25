@@ -91,10 +91,13 @@ using BlazorServerappDemo.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 35 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\BlazorServerappDemo\Pages\ManageProducts\Products.razor"
+#line 24 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\BlazorServerappDemo\Pages\ManageProducts\Products.razor"
        
 
     public List<Product> products { get; set; }
+
+    public Product ProductInfo { get; set; }
+
     // When the Component is Loaded
     protected async override Task OnInitializedAsync()
     {
@@ -103,16 +106,22 @@ using BlazorServerappDemo.Data;
 
     public int ProductID { get; set; }
 
-    public void ShowDetails(int productId)
+    public async Task ShowDetails(int productId)
     {
-        ProductID = productId;
+        ProductInfo = await _repository.GetProductById(productId);
 
+    }
+
+    public void NavigateToAddProduct()
+    {
+        _navigationManager.NavigateTo("/addproduct");
     }
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager _navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProductRepository _repository { get; set; }
     }
 }

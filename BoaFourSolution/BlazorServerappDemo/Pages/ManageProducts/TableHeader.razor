@@ -1,0 +1,23 @@
+﻿<thead>
+    <tr>
+        <td>@ID</td>
+        <td> @Name</td>
+        <td> @Cost</td>
+        <td> @Description</td>
+        <td> @Category</td>
+    </tr>
+</thead>
+
+@code {
+    [Parameter]
+    public string  ID { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+    [Parameter]
+    public string Cost { get; set; }
+    [Parameter]
+    public string Description { get; set; }
+    [Parameter]
+    public string Category { get; set; }
+}

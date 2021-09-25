@@ -90,7 +90,7 @@ using BlazorServerappDemo.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\BlazorServerappDemo\Shared\NavMenu.razor"
+#line 53 "D:\FreeLancerAssignments\Edureka\BankOfAmericaSessions\BOA4\BoaSessionFourNew\WebApp\BoaFourSolution\BlazorServerappDemo\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

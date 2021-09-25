@@ -1,0 +1,41 @@
+﻿@page "/addproduct"
+
+@inject IProductRepository _repository
+@inject NavigationManager _navigationManager
+<EditForm OnValidSubmit="SaveProduct" Model="product">
+    <DataAnnotationsValidator/>
+    <div class="form-group">
+        <label> Name</label>
+        <ValidationMessage For="@(()=>product.ProductName)"/>
+        <InputText @bind-Value="product.ProductName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Price</label>
+        <ValidationMessage For="@(()=>product.Price)" />
+        <InputNumber @bind-Value="product.Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Description</label>
+        <ValidationMessage For="@(()=>product.Description)" />
+        <InputText @bind-Value="product.Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Category</label>
+        <ValidationMessage For="@(()=>product.Category)" />
+        <InputText @bind-Value="product.Category" class="form-control" />
+    </div>
+    <button class="btn btn-primary" type="submit">Save Product</button>
+</EditForm>
+
+@code {
+
+    Product product = new Product();
+
+    public async Task SaveProduct()
+    {
+        await _repository.AddProduct(product);
+        _navigationManager.NavigateTo("/products");
+
+    }
+
+}

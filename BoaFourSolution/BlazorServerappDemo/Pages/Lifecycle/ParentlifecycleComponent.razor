@@ -1,0 +1,54 @@
+﻿@page "/parentlifecycle"
+@inject IJSRuntime JSRuntime
+<h3>ParentlifecycleComponent </h3>
+<h2> Should Render : @count</h2>
+<button @onclick="IncrementCount"> Increment Count</button>
+<button @onclick="TurnOn"> ON</button>
+<button @onclick="TurnOff"> Off</button>
+
+<h2> OnAfterRender</h2>
+<div @ref="divElement">Text During Render</div>
+
+
+<h2> OnParameterSet</h2>
+<ChildlifecycleComponent  RandNumber="@randomNumber"/>
+<button @onclick="GenerateRandom"> Generate Random No</button>
+
+
+
+@code {
+    int randomNumber = 0;
+    Random random = new Random();
+    public void GenerateRandom()
+    {
+        randomNumber = random.Next(10000);
+    }
+
+    private ElementReference divElement;
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await Task.Delay(3000);
+        await JSRuntime.InvokeVoidAsync("setElementText", divElement, "Test After Render");
+    }
+
+    int count = 0;
+    bool shouldRender = true;
+    public void IncrementCount()
+    {
+        count++;
+    }
+    public void TurnOn()
+    {
+        shouldRender = true;
+    }
+    public void TurnOff()
+    {
+        shouldRender = false;
+    }
+
+    protected override bool ShouldRender()
+    {
+        return shouldRender;
+    }
+}
