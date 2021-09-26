@@ -20,6 +20,8 @@ namespace sample_app.Components
         // Invoke Method : Automatically called
         public IViewComponentResult Invoke()
         {
+            // Set the infromation related to Current Selected Category
+            ViewBag.SelectedCategory = RouteData?.Values["category"];
             // Get all Categories
             var categories = _repository.Products.Select(x => x.Category)
                 .Distinct()
